@@ -3,5 +3,8 @@
 ## Action [`sync-branch`](https://github.com/remarkablemark/sync-branch)
 
 - Works nicely with minimal setup
-- [ ] also with branch protection rules?
-- we'll find out
+- If branch protection rules require PR approvals, action creates PR and then fails, which also shows as a failed status check
+
+## Copy code parts of [`sync-branch`](https://github.com/remarkablemark/sync-branch)
+
+- ...

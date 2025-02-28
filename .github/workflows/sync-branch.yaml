@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - main
+      - not-main
 jobs:
   sync-branch:
     runs-on: ubuntu-latest
