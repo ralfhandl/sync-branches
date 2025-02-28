@@ -22,7 +22,7 @@ jobs:
 
           gh pr create --base $BASE --head $HEAD \
           --label "Housekeeping" \
-          --title "$BASE - update from $HEAD" \
+          --title "$BASE: update from $HEAD" \
           --body "Merge \`$HEAD\` into \`$BASE\`."
         env:
           GH_TOKEN: ${{ github.token }}
