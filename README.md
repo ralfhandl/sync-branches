@@ -4,3 +4,4 @@
 
 - Works nicely with minimal setup
 - [ ] also with branch protection rules?
+- we'll find out
