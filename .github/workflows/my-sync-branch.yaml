@@ -12,7 +12,8 @@ jobs:
       - name: Create pull request
         id: pull_request
         shell: bash
-        run: gh pr create \
+        run: |
+          gh pr create \
           --base dev \
           --head main \
           --title "dev - update from main"
