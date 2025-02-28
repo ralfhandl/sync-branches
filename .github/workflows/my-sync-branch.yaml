@@ -14,10 +14,9 @@ jobs:
         id: pull_request
         shell: bash
         run: |
-          # TODO: check if PR already exists
           EXISTS=$(gh pr list --base $BASE --head $HEAD --json number --jq '.[] | .number')
           if [ ! -z "$EXISTS" ]; then
-            echo "PR to merge $HEAD into $BASE already exists"
+            echo "PR #$EXISTS already wants to merge $HEAD into $BASE
             exit 0
           fi
 
