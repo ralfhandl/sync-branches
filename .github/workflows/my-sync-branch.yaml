@@ -15,6 +15,7 @@ jobs:
         run: |
           # TODO: check if PR already exists
           EXISTS=$(gh pr list --base dev --head main --json number --jq '.[] | .number')
+          echo "PR exists: $EXISTS"
           if [ -z "$EXISTS" ]; then
             echo "PR already exists"
             exit 0
