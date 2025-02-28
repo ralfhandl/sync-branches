@@ -13,6 +13,7 @@ jobs:
         id: pull_request
         shell: bash
         run: |
+          # TODO: check if PR already exists
           gh pr create \
           --base dev \
           --head main \
