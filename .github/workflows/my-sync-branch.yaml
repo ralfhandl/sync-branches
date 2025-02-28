@@ -23,6 +23,6 @@ jobs:
 
           gh pr create --base dev --head main \
           --title "dev - update from main" \
-          --body "merge `main` into `dev`"
+          --body "merge \`main\` into \`dev\`"
         env:
           GH_TOKEN: ${{ github.token }}
