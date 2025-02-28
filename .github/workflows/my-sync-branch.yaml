@@ -7,22 +7,24 @@ jobs:
   sync-branch:
     runs-on: ubuntu-latest
     steps:
-      # - name: Checkout repository
-      #   uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Create pull request
         id: pull_request
         shell: bash
         run: |
           # TODO: check if PR already exists
-          EXISTS=$(gh pr list --base dev --head main --json number --jq '.[] | .number')
+          EXISTS=$(gh pr list --base $BASE --head $HEAD --json number --jq '.[] | .number')
           if [ ! -z "$EXISTS" ]; then
             echo "PR already exists"
             exit 0
           fi
 
           gh pr create --base dev --head main \
-          --title "dev - update from main" \
-          --body "merge \`main\` into \`dev\`"
+          --title "$BASE - update from $HEAD" \
+          --body "merge \`$HEAD\` into \`$BASE\`"
         env:
           GH_TOKEN: ${{ github.token }}
+          BASE: dev
+          HEAD: main
