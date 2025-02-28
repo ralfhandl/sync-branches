@@ -14,16 +14,17 @@ jobs:
         id: pull_request
         shell: bash
         run: |
-          EXISTS=$(gh pr list --base $BASE --head $HEAD --json number --jq '.[] | .number')
+          EXISTS=$(gh pr list --base $BASE --head $HEAD \
+            --json number --jq '.[] | .number')
           if [ ! -z "$EXISTS" ]; then
             echo "PR #$EXISTS already wants to merge $HEAD into $BASE"
             exit 0
           fi
 
           gh pr create --base $BASE --head $HEAD \
-          --label "Housekeeping" \
-          --title "$BASE: update from $HEAD" \
-          --body "Merge \`$HEAD\` into \`$BASE\`."
+            --label "Housekeeping" \
+            --title "$BASE: update from $HEAD" \
+            --body "Merge \`$HEAD\` into \`$BASE\`."
         env:
           GH_TOKEN: ${{ github.token }}
           HEAD: ${{ github.ref_name }}
