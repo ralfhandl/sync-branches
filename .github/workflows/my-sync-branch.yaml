@@ -26,5 +26,5 @@ jobs:
           --body "merge \`$HEAD\` into \`$BASE\`"
         env:
           GH_TOKEN: ${{ github.token }}
+          HEAD: ${{ github.ref_name }}
           BASE: dev
-          HEAD: main
