@@ -16,7 +16,7 @@ jobs:
         run: |
           EXISTS=$(gh pr list --base $BASE --head $HEAD --json number --jq '.[] | .number')
           if [ ! -z "$EXISTS" ]; then
-            echo "PR #$EXISTS already wants to merge $HEAD into $BASE
+            echo "PR #$EXISTS already wants to merge $HEAD into $BASE"
             exit 0
           fi
 
