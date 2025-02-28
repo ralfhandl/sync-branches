@@ -21,9 +21,10 @@ jobs:
             exit 0
           fi
 
-          gh pr create --base dev --head main \
+          gh pr create --base $BASE --head $HEAD \
+          --label "Housekeeping" \
           --title "$BASE - update from $HEAD" \
-          --body "merge \`$HEAD\` into \`$BASE\`"
+          --body "Merge \`$HEAD\` into \`$BASE\`."
         env:
           GH_TOKEN: ${{ github.token }}
           HEAD: ${{ github.ref_name }}
