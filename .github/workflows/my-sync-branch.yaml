@@ -13,9 +13,14 @@ jobs:
         id: pull_request
         shell: bash
         run: |
-          gh pr create \
-          --base dev \
-          --head main \
+          # TODO: check if PR already exists
+          EXISTS=$(gh pr list --base dev --head main --json number --jq '.[] | .number')
+          if [ ! -z "$EXISTS" ]; then
+            echo "PR already exists"
+            exit 0
+          fi
+
+          gh pr create --base dev --head main \
           --title "dev - update from main" \
           --body "merge `main` into `dev`"
         env:
